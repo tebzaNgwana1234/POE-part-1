@@ -15,44 +15,16 @@ public class RegistrationAndLogin {
     private String firstName;
     private String lastName;
     
+    Scanner sc = new Scanner(System.in);
     //Methods of a new registering user
     public void registerUser(){
-        //Scanner name
-        Scanner sc = new Scanner(System.in);
         
-        //Promping User Registration Details and Cridentials
-        System.out.print("Enter Username: ");
-        String firstName = sc.nextLine();
-        
-        System.out.print("Enter Username: ");
-        String lastName = sc.nextLine();
         
         //User Information 
         System.out.print("User regirstered successfully!");
         displayUserInfo();
         
-        System.out.print("Enter Username: ");
-        String username = sc.nextLine();
-        
-        //Username validaiton
-        System.out.print("Enter Username (must contain an underscore and be no more than 5 characters long): ");
-        if (username.length() <= 5 && username.contains("_")) {
-            System.out.println("Username successfully captured.");
-        } else {
-            System.out.println("Username is not correctly formatted. Please ensure that your username contains an underscore and is no more than 5 characters in length.");
-            return; // Exit the method if the username is invalid
-        }
-        
-        System.out.print("Enter Password: ");
-        String password = sc.nextLine();
-        
-        // Validate the password
-        if (password.length() < 8) {
-            System.out.println("Password is not correctly formatted. Please ensure that the password contains at least 8 characters, a capital letter, a number, and a special character.");
-            return; // Exit if password is invalid
-        }
-
-        boolean hasUppercase = false;
+     boolean hasUppercase = false;
         boolean hasDigit = false;
         boolean hasSpecialChar = false;
 
@@ -72,16 +44,44 @@ public class RegistrationAndLogin {
             System.out.println("Password successfully captured.");
         } else {
             System.out.println("Password is not correctly formatted. Please ensure that the password contains at least 8 characters, a capital letter, a number, and a special character.");
-            return; // Exit if password is invalid
+            return; 
         }
         //Check if the entered username and password match
         if (username.equals(username) && password.equals(password)) {
             System.out.println("Welcome: " + firstName + ", " + lastName + ", it is great to see you again!");
         } else {
             System.out.println("Invalid username or password. Please try again.");
+        }  
+        
+        System.out.print("Enter Username: ");
+        username = sc.nextLine();
+        
+        //Username validaiton
+        System.out.print("Enter Username (must contain an underscore and be no more than 5 characters long): ");
+        if (username.length() <= 5 && username.contains("_")) {
+            System.out.println("Username successfully captured.");
+        } else {
+            System.out.println("Username is not correctly formatted. Please ensure that your username contains an underscore and is no more than 5 characters in length.");
+            return; // Exit the method if the username is invalid
         }
         
+        System.out.print("Enter Password: ");
+        password = sc.nextLine();
         
+        // Validate the password
+        if (password.length() < 8) {
+            System.out.println("Password is not correctly formatted. Please ensure that the password contains at least 8 characters, a capital letter, a number, and a special character.");
+            return; // Exit if password is invalid
+        }
+        
+        //Username validaiton
+        System.out.print("Enter Username (must contain an underscore and be no more than 5 characters long): ");
+        if (username.length() <= 5 && username.contains("_")) {
+            System.out.println("Username successfully captured.");
+        } else {
+            System.out.println("Username is not correctly formatted. Please ensure that your username contains an underscore and is no more than 5 characters in length.");
+            return;
+        }
         
     }
     //Method to display user information
@@ -92,10 +92,38 @@ public class RegistrationAndLogin {
             System.out.println("Username: "+ username);           
     }
     
-    //
+    
     
     public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        //Promping User Registration Details and Cridentials
+        System.out.print("Enter First name: ");
+        String firstName = sc.nextLine();
+        
+        System.out.print("Enter Last name: ");
+        String lastName = sc.nextLine();
+        
+        System.out.print("Enter Username: ");
+        String username = sc.nextLine();
+        
+        System.out.print("Enter Password: ");
+        String password = sc.nextLine();
+        
+        RegistrationAndLogin Registration = new RegistrationAndLogin();
+        Login LoginObjects = new Login();
+        LoginObjects.checkPasswordComplexity();
+        //Registration methods
+        LoginObjects.checkRegistrationStatus();
+        Registration.registerUser();
+        Registration.displayUserInfo();
+        
+        LoginObjects.loginUser(username, password);
+        LoginObjects.returnLoginStatus(true);
+        
        
+        
+        
     }
     
 }

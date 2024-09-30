@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.registrationandlogin;
-import java.util.Scanner;
+
 /**
  *
  * @author Teboho Kojoana
@@ -40,23 +40,44 @@ public class Login {
                 containsDigit() && 
                 containsSpecialCharacter();
     }
-    private boolean containsUppercase(){
+    
+    //Check password complexity
+    public boolean containsUppercase(){
         return password.chars().anyMatch(Character::isUpperCase);
     }   
-    private boolean containsDigit(){
+    public boolean containsDigit(){
         return password.chars().anyMatch(Character::isDigit);
     }
-    private boolean containsSpecialCharacter(){
-        String SpecialCharacter = "!@#$%^&*()_+-{}[]=;:''<>?,./`~";
+    public boolean containsSpecialCharacter() {
+        String specialCharacters = "!@#$%^&*()-_=+[]{};:'\",.<>?/`~";
+        return password.chars().anyMatch(ch -> specialCharacters.indexOf(ch) >= 0);
     }
-   
-    public String registerUser(){
+    // Method to check registration status
+    public String checkRegistrationStatus() {
+        if (!isUsernameValid()) {
+            return "Invalid username. It must be less than 5 characters long and contain an underscore.";
+        }
+        if (!isPasswordValid()) {
+            return "Invalid password. It must be at least 8 characters long, contain a capital letter, a number, and a special character.";
+        }
+        return "Registration successful!";
+    }
+    //Verify login details
+    public boolean loginUser(String inputUsername, String inputPassword){
+        return this.username.equals(inputUsername) && this.password.equals(inputPassword);
     }
 
-    public boolean loginUser(){
+    //Return login status
+    public String returnLoginStatus(boolean isSuccess){
+        return isSuccess? "Login successful" : "Invalid login details!";
     }
 
-    public String returnLoginStatus(){
+    private boolean isUsernameValid() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private boolean isPasswordValid() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
