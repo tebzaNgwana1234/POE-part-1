@@ -25,7 +25,7 @@ public class Login {
                password.chars().anyMatch(Character::isDigit) &&
                password.chars().anyMatch(ch -> "!@#$%^&*()-+=<>?/".indexOf(ch) >= 0);
     }
-    
+    //User 
     public String user(String username, String password) {
         boolean isUsernameValid = checkUsername(username);
         boolean isPasswordValid = checkPasswordComplexity(password);
