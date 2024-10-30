@@ -41,33 +41,33 @@ public static void main(String[] args) {
     String username = JOptionPane.showInputDialog("Enter your username to login: "); //Prompt for username
     String password = JOptionPane.showInputDialog("Enter your password to login: "); //Prompt for password
 
-    // Create a new Login instance to handle user login
+    //Create a new Login instance to handle user login
     Login login = new Login();
     // Check the login status and get the corresponding message
     String loginStatus = login.returnLoginStatus(username, password);
-    // Display the login status to the user in a dialog box
+    //Display the login status to the user in a dialog box
     JOptionPane.showMessageDialog(null, loginStatus);
     
-    // Display a welcome message to the user
+    //Display a welcome message to the user
     JOptionPane.showMessageDialog(null,"Welcome to EasyKanban!");
     
-    // Display options to the user in a loop
+    //Display options to the user in a loop
     while (true) {
-        // Prompt the user to choose an option from the menu
+        //Prompt the user to choose an option from the menu
         String choice = JOptionPane.showInputDialog("Choose an option: \n1: Add Tasks \n2: Show Report (Coming soon) \n3: Quit " );
         switch (Integer.parseInt(choice)) {
             case 1: // Option to add tasks
                 String numberOfTasks = JOptionPane.showInputDialog("How many tasks would you like to enter?"); // Prompt for number of tasks
-                login.addTasks(Integer.parseInt(numberOfTasks)); // Call method to add tasks
+                login.addTasks(Integer.parseInt(numberOfTasks)); //Call method to add tasks
                 break;
-            case 2: // Option for showing reports
-                JOptionPane.showMessageDialog(null, "Coming soon."); // Placeholder for future functionality
+            case 2: //Option for showing reports
+                JOptionPane.showMessageDialog(null, "Coming soon."); //Placeholder for future functionality
                 break;
-            case 3: // Option to quit the application
-                JOptionPane.showMessageDialog(null, "Exiting the application."); // Inform user before exiting
-                return; // Exit the application
-            default: // Handle invalid choices
-                JOptionPane.showMessageDialog(null, "Invalid choice. Please try again."); // Prompt for valid input
+            case 3: //Option to quit the application
+                JOptionPane.showMessageDialog(null, "Exiting the application."); //Inform user before exiting
+                return; //Exit the application
+            default: //Handle invalid choices
+                JOptionPane.showMessageDialog(null, "Invalid choice. Please try again."); //Prompt for valid input
         }
     }
     }
