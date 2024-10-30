@@ -31,24 +31,24 @@ public class Task {
 
     //Constructor to initialize a new Task instance with provided details
     public Task(String taskName, int taskNumber, String taskDescription, String developerName, int developerHours) {
-        this.taskName = taskName; // Initialize task name
-        this.taskNumber = taskNumber; // Initialize task number
-        this.taskDescription = taskDescription; // Initialize task description
-        this.developerName = developerName; // Initialize developer name
-        this.developerHours = developerHours; // Initialize developer hours
-        this.taskID = createTaskID(taskName, taskNumber, developerName); // Generate the unique task ID
+        this.taskName = taskName; //Initialize task name
+        this.taskNumber = taskNumber; //Initialize task number
+        this.taskDescription = taskDescription; //Initialize task description
+        this.developerName = developerName; //Initialize developer name
+        this.developerHours = developerHours; //Initialize developer hours
+        this.taskID = createTaskID(taskName, taskNumber, developerName); //Generate the unique task ID
     }
 
     //Method to check if the task description is within the allowed length
     public boolean checkTaskDescription() {
-        return taskDescription.length() <= 50; // Return true if description length is 50 or less
+        return taskDescription.length() <= 50; //Return true if description length is 50 or less
     }
 
     //Private method to create a unique task ID based on task details
     private String createTaskID(String taskName, int taskNumber, String developerName) {
         // Generate the ID using the first two letters of taskName, taskNumber, and last three letters of developerName
         String id = taskName.substring(0, 2).toUpperCase() + ":" + taskNumber + ":" + developerName.substring(developerName.length() - 3).toUpperCase();
-        return id; // Return the generated task ID
+        return id; //Return the generated task ID
     }
 
     //Method to print all details of the task in a formatted string
@@ -60,7 +60,7 @@ public class Task {
 
     //Method to set the current status of the task
     public void setTaskStatus(String status) {
-        this.taskStatus = status; // Update the task status
+        this.taskStatus = status; //Update the task status
     }
 
     //Getter method to retrieve the number of hours allocated to the developer for the task
