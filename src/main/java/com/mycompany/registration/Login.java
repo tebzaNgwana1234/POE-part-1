@@ -75,40 +75,40 @@ public class Login {
     private List<Task> tasks = new ArrayList<>(); //List to hold tasks
     private int totalHours = 0; //Total hours allocated to tasks
 
-    // Method to add multiple tasks with user input
+    //Method to add multiple tasks with user input
     public void addTasks(int numberOfTasks) {
-        // Loop to add specified number of tasks
+        //Loop to add specified number of tasks
         for (int i = 0; i < numberOfTasks; i++) {
             String taskName = JOptionPane.showInputDialog("Enter Task Name: ");
             String taskDescription = JOptionPane.showInputDialog("Enter Task Description (max 50 characters): ");
 
-            // Validate task description length
+            //Validate task description length
             if (!checkTaskDescription(taskDescription)) {
                 JOptionPane.showMessageDialog(null,"Please enter a task description of less than 50 characters");
-                i--; // Decrement to retry this task
-                continue; // Skip to the next iteration
+                i--; //Decrement to retry this task
+                continue; //Skip to the next iteration
             }
             String developerName = JOptionPane.showInputDialog("Enter Developer Name: ");
             String taskDuration = JOptionPane.showInputDialog("Enter the duration: ");
 
-            // Select task status from user input
+            //Select task status from user input
             String status = JOptionPane.showInputDialog("Select Task Status (1. To Do, 2. Done, 3. Doing)");
             switch (Integer.parseInt(status)) {
-                case 1: status = "To Do"; break; // Map user input to status
+                case 1: status = "To Do"; break; //Map user input to status
                 case 2: status = "Done"; break;
                 case 3: status = "Doing"; break;
                 default: 
                     JOptionPane.showMessageDialog(null, "Invalid selection."); 
-                    continue; // Skip to the next iteration on invalid input
+                    continue; //Skip to the next iteration on invalid input
             }
 
-            // Create a new Task instance and set its status
+            //Create a new Task instance and set its status
             Task task = new Task(taskName, i, taskDescription, developerName, Integer.parseInt(taskDuration));
             task.setTaskStatus(status);
-            tasks.add(task); // Add task to the list
-            totalHours += Integer.parseInt(taskDuration); // Update total hours
+            tasks.add(task); //Add task to the list
+            totalHours += Integer.parseInt(taskDuration); //Update total hours
 
-            // Show task details to the user
+            //Show task details to the user
             JOptionPane.showMessageDialog(null, task.printTaskDetails());
         }
     }
