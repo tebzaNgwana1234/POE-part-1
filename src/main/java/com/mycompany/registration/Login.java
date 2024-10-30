@@ -113,13 +113,13 @@ public class Login {
         }
     }
 
-    // Method to check if the task description is within the allowed length
+    //Method to check if the task description is within the allowed length
     public boolean checkTaskDescription(String description) {
-        return description.length() <= 50; // Return true if description length is 50 or less
+        return description.length() <= 50; //Return true if description length is 50 or less
     }
 
-    // Method to return the total hours allocated to all tasks
+    //Method to return the total hours allocated to all tasks
     public int returnTotalHours() {
-        return totalHours; // Return the total hours
+        return totalHours; //Return the total hours
     }
 }
