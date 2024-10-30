@@ -8,13 +8,13 @@ package com.mycompany.registration;
  * @author Teboho Kojoana
  */
 public class Task {
-    private String taskName;
-    private int taskNumber;
-    private String taskDescription;
-    private String developerName;
+    public String taskName;
+    public int taskNumber;
+    public String taskDescription;
+    public String developerName;
     private int developerHours;
-    private String taskID;
-    private String taskStatus;
+    public String taskID;
+    public String taskStatus;
 
     public Task(String taskName, int taskNumber, String taskDescription, String developerName, int developerHours) {
         this.taskName = taskName;
